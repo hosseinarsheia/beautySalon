@@ -20,4 +20,8 @@ export default {
   },
 
   textColor: '#111111',
+  white: '#FFFFFF',
+  black: 'black',
+  transparent: 'transparent',
+  textInputPlaceholder: 'rgba(21,103,120,0.5)',
 };

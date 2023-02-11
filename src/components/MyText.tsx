@@ -13,7 +13,7 @@ interface MyTextProps {
 
 const MyText: FC<MyTextProps> = ({
   font = 'Regular',
-  size = R.fontSizes.fs15,
+  size = R.fontSizes.fs14,
   color = 'black',
   style,
   children,

@@ -1,4 +1,8 @@
 const strings = {
+  mobileNumber: 'شماره موبایل',
+  password: 'رمز عبور',
+  login: 'ورود',
+  forgetPassword: 'رمز عبور را فراموش کرده اید؟',
   /*************************************************************/
 
   paymentCallBackURL: 'app://baarbarg.ir/AppPaymentResult',

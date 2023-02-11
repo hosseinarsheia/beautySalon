@@ -8,6 +8,8 @@ export default {
   windowWidth: window.width,
   windowHeight: window.height,
 
+  myVerticalSpacer: 10,
+
   bottomRoundHeight: vs(50),
 
   // icon

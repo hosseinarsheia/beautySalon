@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
-import { View, StyleSheet, Image, Animated } from 'react-native';
-import { MyText, MyButton } from '../../components';
+import { View, StyleSheet, Image, Animated, StatusBar } from 'react-native';
+import { MyText, MyButton, MySpacer } from '../../components';
+import { OnBoardingScreenProps } from '../../navigation/rootNavigator/ParamList';
 
 import R from '../../res/R';
 
@@ -30,7 +31,7 @@ const backgroundImages = [
   },
 ];
 
-function OnBoarding() {
+function OnBoarding({ navigation }: OnBoardingScreenProps) {
   const scrollX = useRef(new Animated.Value(0)).current;
 
   function interpolateHandler(index: number, outputRange: string[] | number[]) {
@@ -47,6 +48,7 @@ function OnBoarding() {
   }
   return (
     <View style={{ flex: 1 }}>
+      <StatusBar hidden />
       <Animated.ScrollView
         pagingEnabled
         horizontal
@@ -73,7 +75,10 @@ function OnBoarding() {
                   {item.subTitle}
                 </MyText>
 
-                {index === backgroundImages.length - 1 && <MyButton onPress={() => {}} />}
+                <MySpacer vertical={R.dimensions.myVerticalSpacer} />
+                {index === backgroundImages.length - 1 && (
+                  <MyButton onPress={() => navigation.replace('LoginScreen')} />
+                )}
               </View>
             </View>
           );
@@ -84,7 +89,7 @@ function OnBoarding() {
         {backgroundImages.map((item, index) => {
           const dotWidth = interpolateHandler(index, [10, 25, 10]);
 
-          const dotColor = interpolateHandler(index, ['white', 'tomato', 'white']);
+          const dotColor = interpolateHandler(index, ['white', R.colors.primary, 'white']);
           return (
             <Animated.View
               key={`${index}`}
