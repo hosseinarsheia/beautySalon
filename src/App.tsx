@@ -1,11 +1,12 @@
 import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import RootAppNavigation from './navigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 function App() {
   return (
-    <SafeAreaView>
-      <Text>hello</Text>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <RootAppNavigation />
+    </SafeAreaProvider>
   );
 }
 
