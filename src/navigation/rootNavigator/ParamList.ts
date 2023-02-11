@@ -1,9 +1,13 @@
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type {
+  NativeStackScreenProps,
+  NativeStackNavigationProp,
+} from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
   App: undefined;
   OnBoarding: undefined;
   LoginScreen: undefined;
+  TabNavigation: undefined;
 };
 
 export type ProfileScreenProps = NativeStackScreenProps<RootStackParamList, 'App'>;

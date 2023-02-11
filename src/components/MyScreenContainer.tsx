@@ -1,5 +1,13 @@
 import React from 'react';
-import { View, Text, StatusBar, StyleSheet, ViewStyle, StatusBarStyle } from 'react-native';
+import {
+  View,
+  Text,
+  StatusBar,
+  StyleSheet,
+  ViewStyle,
+  StatusBarStyle,
+  Pressable,
+} from 'react-native';
 import { Icon } from '@rneui/themed';
 
 import { useNavigation } from '@react-navigation/native';
@@ -61,7 +69,7 @@ const ScreenContainer = ({
             Styles.header,
             {
               height: R.dimensions.headerHeight,
-              justifyContent: showBackButton ? 'center' : 'space-between',
+              justifyContent: 'space-between',
             },
           ]}>
           {leftIconName ? (
@@ -72,26 +80,30 @@ const ScreenContainer = ({
               size={leftIconsize}
               onPress={leftIconPress}
             />
-          ) : showBackButton || rightIconName ? (
-            <Icon name="arrowright" type="antdesign" color={R.colors.transparent} />
-          ) : null}
+          ) : (
+            <View />
+          )}
 
-          <Text style={Styles.title}>{title}</Text>
-          {rightIconName ? (
-            <Icon
-              name={rightIconName}
-              type={rightIconType}
-              color={R.colors.white}
-              onPress={secondRightIconOnPress}
-            />
-          ) : showBackButton ? (
-            <Icon
-              onPress={() => navigation.goBack()}
-              name="arrowright"
-              type="antdesign"
-              color={R.colors.white}
-            />
-          ) : null}
+          <View
+            style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start' }}>
+            <Text style={Styles.title}>{title}</Text>
+            {rightIconName ? (
+              <Icon
+                name={rightIconName}
+                type={rightIconType}
+                color={R.colors.black}
+                onPress={secondRightIconOnPress}
+              />
+            ) : showBackButton ? (
+              <Icon
+                activeOpacity={0}
+                onPress={() => navigation.goBack()}
+                name="arrowright"
+                type="antdesign"
+                color={R.colors.black}
+              />
+            ) : null}
+          </View>
         </View>
       )}
 
@@ -126,7 +138,7 @@ const Styles = StyleSheet.create({
     fontFamily: R.fonts.IRANSansMobile_Bold,
     fontSize: R.fontSizes.fs15,
     color: R.colors.black,
-    flex: 1,
     textAlign: 'center',
+    marginRight: 10,
   },
 });

@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, Alert, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { View, KeyboardAvoidingView } from 'react-native';
 
 import R from '../../res/R';
 
 import { MyButton, MyScreenContainer, MySpacer, MyText, MyTextInput } from '../../components';
 import { useImmer } from 'use-immer';
+import { LoginScreenScreenProps } from '../../navigation/rootNavigator/ParamList';
 
-function LoginScreen() {
+function LoginScreen({ navigation }: LoginScreenScreenProps) {
   const [mobile, setMobile] = useImmer('');
   const [password, setPassword] = useImmer('');
   return (
@@ -43,7 +44,7 @@ function LoginScreen() {
       </KeyboardAvoidingView>
 
       <View>
-        <MyButton title={R.strings.login} onPress={() => {}} />
+        <MyButton title={R.strings.login} onPress={() => navigation.replace('TabNavigation')} />
         <MySpacer vertical={5} />
 
         <MyText size={R.fontSizes.fs12}>
@@ -59,7 +60,3 @@ function LoginScreen() {
 }
 
 export default LoginScreen;
-
-const styles = StyleSheet.create({
-  container: {},
-});
